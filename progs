@@ -1,0 +1,131 @@
+plymouth
+zbar
+exa
+gpick
+rg
+fd
+tokei
+bat
+lsof
+procs
+barcode generater?
+cava
+code-minimap
+devour?
+mcfly
+gomuks
+font-manager
+alacritty-ligatures-git
+miniconda3
+mutt-wizard-git
+openvpn3
+paru
+pup
+tremc
+stig?
+snake
+ytmdl
+unrar-free?
+downloader-cli?
+neovim-nightly-bin
+picom-ibhagwan-git
+absolutely-proprietary
+farbfeld?
+ofono?
+grub-silent
+grub2-theme-vimix-git
+(plymouth theme?)
+sacad?
+tetris-cli--git
+toilet
+vrms-arch
+font manager
+gucharmap
+latex??
+
+net-tools?
+bluez and ...
+alsamixer
+alsa-utils
+pavucontrol
+wally
+acpid?
+jdk11-openjdk
+ncdu
+fcitx-sunpinyin
+adobe-source-han-sans-cn-fonts
+yarn?
+tmux 
+nyancat
+figlet
+wget
+rsync
+pandoc  __________up to 2279th line in /var/log/pacman.log
+gnat?
+gprbuild?
+cronie
+mtpfs?
+farbfeld?
+screenkey
+oFono?
+bluez
+bluez-utils
+pulseaudio-bluetooth
+pulseaudio-alsa
+pulseaudio
+ffmpegthuumbnailer
+imagemagick
+poppler?
+chafa(optional)
+bc
+dash
+neofetch
+fzf
+cmatrix
+linux-headers?
+gotop
+xsel(need or not?)
+lsusb usbutils?
+fortune-mod
+iwctl(need?)
+docker(?) xorg-xhost (?) 
+rofi
+lxappearance(?)
+thunar
+lightdm
+light-locker(?)
+blender(?)
+rust
+ueberzug
+jsoncpp?
+virtualbox  && virtualbox-host-modules-arch
+iwd?
+iw?
+wireless_tools?
+lolcat
+reflector?
+inotify-tools? not on the system currently
+entr
+qrencode && zbar
+depmod?
+luarocks?
+lua-filesystem?
+iproute2?
+paru
+cargo?
+gio?
+upower?
+telnet? inetutils?
+xdg-user-dirs
+xss-lock ?
+ccls (need?)
+pup
+v4l-utils?
+unrar?
+gif for cli
+luaformatter
+luarocks
+gifsicle
+xwinwrap
+artha
+tumbler
