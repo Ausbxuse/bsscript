@@ -114,6 +114,10 @@ pipinstall() { \
 	[ -x "$(command -v "pip")" ] || installpkg python-pip >/dev/null 2>&1
 	yes | pip install "$1"
 	}
+luainstall() { \
+	dialog --title "archbxuse Installation" --infobox "Installing the lua package \`$1\` ($n of $total). $1 $2" 5 70
+	luarocks install "$1"
+	}
 
 installationloop() { \
 	([ -f "$progsfile" ] && cp "$progsfile" /tmp/progs.csv) || curl -Ls "$progsfile" | sed '/^#/d' > /tmp/progs.csv
@@ -204,6 +208,9 @@ installparu || error "Failed to install AUR helper."
 # the user has been created and has priviledges to run sudo without a password
 # and all build dependencies are installed.
 installationloop
+
+luainstall luaposix
+luainstall awestore
 
 #dialog --title "archbxuse Installation" --infobox "Finally, installing \`libxft-bgra\` to enable color emoji in suckless software without crashes." 5 70
 #yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
