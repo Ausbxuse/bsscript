@@ -51,6 +51,8 @@ A,brave-bin,"is an elegant browser with built-in adblocking, tor and other featu
 ,lightdm-webkit2-greeter,"lightdm greeter"
 ,adobe-source-han-sans-cn-fonts,"Chinese fonts"
 ,adobe-source-han-serif-cn-fonts,"Chinese fonts"
+,exa,"better ls"
+,trash-cli,"trash tool"
 A,awesome-git,"window manager"
 A,picom-ibhagwan-git,"window compositor"
 A,ytmdl,"music downloader"

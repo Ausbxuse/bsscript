@@ -79,6 +79,13 @@ manualinstall() { # Installs $1 manually if not installed. Used only for AUR hel
 	sudo -u "$name" makepkg --noconfirm -si >/dev/null 2>&1
 	cd /tmp || return 1) ;}
 
+installparu() {
+	dialog --infobox "Installing paru, an AUR helper..." 4 50
+	cd /tmp || exit 1
+	git clone --depth 1 https://aur.archlinux.org/paru.git
+	cd paru && makepkg -si
+	cd /tmp || return 1
+}
 maininstall() { # Installs all needed programs from main repo.
 	dialog --title "archbxuse Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2" 5 70
 	installpkg "$1"
@@ -187,7 +194,8 @@ grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy"
 # Use all cores for compilation.
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
-manualinstall $aurhelper || error "Failed to install AUR helper."
+#manualinstall $aurhelper || error "Failed to install AUR helper."
+installparu || error "Failed to install AUR helper."
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
@@ -195,12 +203,12 @@ manualinstall $aurhelper || error "Failed to install AUR helper."
 # and all build dependencies are installed.
 installationloop
 
-dialog --title "archbxuse Installation" --infobox "Finally, installing \`libxft-bgra\` to enable color emoji in suckless software without crashes." 5 70
-yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
+#dialog --title "archbxuse Installation" --infobox "Finally, installing \`libxft-bgra\` to enable color emoji in suckless software without crashes." 5 70
+#yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
 
 # Install the dotfiles in the user's home directory
 putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
-rm -f "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
+rm -f "/home/$name/README.md" "/home/$name/LICENSE" #"/home/$name/FUNDING.yml"
 # make git ignore deleted LICENSE & README.md files
 git update-index --assume-unchanged "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
