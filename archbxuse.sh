@@ -80,11 +80,13 @@ manualinstall() { # Installs $1 manually if not installed. Used only for AUR hel
 	cd /tmp || return 1) ;}
 
 installparu() {
+	[ -f "/usr/bin/$1" ] || (
 	dialog --infobox "Installing paru, an AUR helper..." 4 50
 	cd /tmp || exit 1
-	git clone --depth 1 https://aur.archlinux.org/paru.git
-	cd paru && makepkg -si
-	cd /tmp || return 1
+	sudo -u "$name" git clone --depth 1 https://aur.archlinux.org/paru.git
+	cd paru &&
+	sudo -u "$name" makepkg --noconfirm -si >/dev/null 2>&1
+		cd /tmp || return 1) ;
 }
 maininstall() { # Installs all needed programs from main repo.
 	dialog --title "archbxuse Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2" 5 70
