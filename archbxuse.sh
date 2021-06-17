@@ -64,9 +64,6 @@ refreshkeys() { \
 	pacman --noconfirm -S archlinux-keyring >/dev/null 2>&1
 	}
 
-newperms() { # Set special sudoers settings for install (or after).
-	sed -i "/#archbxuse/d" /etc/sudoers
-	echo "$* #archbxuse" >> /etc/sudoers ;}
 
 manualinstall() { # Installs $1 manually if not installed. Used only for AUR helper here.
 	[ -f "/usr/bin/$1" ] || (
@@ -201,16 +198,12 @@ grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy"
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 #manualinstall $aurhelper || error "Failed to install AUR helper."
-installparu || error "Failed to install AUR helper."
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
 # the user has been created and has priviledges to run sudo without a password
 # and all build dependencies are installed.
 installationloop
-
-luainstall luaposix
-luainstall awestore
 
 #dialog --title "archbxuse Installation" --infobox "Finally, installing \`libxft-bgra\` to enable color emoji in suckless software without crashes." 5 70
 #yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
